@@ -22,3 +22,8 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# Güvenlik - asla yüklenmemeli
+*.sql
+/public/test.php
+/public/bootstrap-debug.php
