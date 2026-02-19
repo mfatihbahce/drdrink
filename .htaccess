@@ -1,0 +1,17 @@
+DirectoryIndex index.php
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Alt klasördeyse (site.com/drdrink) aşağıdaki satırın yorumunu kaldırıp /drdrink/ yazın
+    # RewriteBase /drdrink/
+
+    # Statik dosyalar: public klasörüne yönlendir
+    RewriteRule ^(build|images|css|js|fonts|storage|videos)/(.*)$ public/$1/$2 [L,NC]
+
+    # Mevcut fiziksel dosya/dizin değilse Laravel'e gönder
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [L]
+</IfModule>
